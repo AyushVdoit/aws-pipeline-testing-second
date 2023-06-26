@@ -7,7 +7,7 @@ class MyLambdaStack(cdk.Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         Function(self, "LambdaFunction",
-            runtime=Runtime.NODEJS_12_X,
+            runtime=Runtime.PYTHON_3_9,
             handler="index.handler",
             code=InlineCode("exports.handler = _ => 'Hello, CDK';")
         )
