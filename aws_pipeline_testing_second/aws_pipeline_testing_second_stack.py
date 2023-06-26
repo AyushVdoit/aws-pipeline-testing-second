@@ -1,6 +1,8 @@
 import aws_cdk as cdk
 from constructs import Construct
 from aws_cdk.pipelines import CodePipeline, CodePipelineSource, ShellStep
+from aws_pipeline_testing_second.app_stage import MyPipelineAppStage
+from aws_cdk.pipelines import ManualApprovalStep
 
 class AwsPipelineTestingSecondStack(cdk.Stack):
 
@@ -16,3 +18,9 @@ class AwsPipelineTestingSecondStack(cdk.Stack):
                                 "cdk synth"]
                         )
                     )
+        
+        pipeline.add_stage(MyPipelineAppStage(self, "test",env=cdk.Environment(account='994546969703', region='us-west-2')))
+
+        testing_stage = pipeline.add_stage(MyPipelineAppStage(self, "testing",env=cdk.Environment(account="111111111111", region="eu-west-1")))
+
+        testing_stage.add_post(ManualApprovalStep('approval'))
