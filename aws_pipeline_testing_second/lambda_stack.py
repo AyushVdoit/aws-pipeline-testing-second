@@ -9,5 +9,5 @@ class MyLambdaStack(cdk.Stack):
         Function(self, "LambdaFunction",
             runtime=Runtime.PYTHON_3_9,
             handler="login.handler",
-            code=Code.from_asset("lambdacode\login")
+            code=Code.from_asset("lambdacode/login")
         )
