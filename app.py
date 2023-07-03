@@ -4,7 +4,7 @@ from aws_pipeline_testing_second.aws_pipeline_testing_second_stack import AwsPip
 
 app = cdk.App()
 AwsPipelineTestingSecondStack(app, "AwsPipelineTestingSecondStack",
-    env=cdk.Environment(account='994546969703', region='us-west-2')
+    env=cdk.Environment(account='994546969703', region='eu-central-1')
 )
 
 app.synth()

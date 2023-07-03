@@ -19,9 +19,9 @@ class AwsPipelineTestingSecondStack(cdk.Stack):
                         )
                     )
         
-        testing_stage =  pipeline.add_stage(MyPipelineAppStage(self, "test4",env=cdk.Environment(account='994546969703', region='us-west-2')))
+        testing_stage =  pipeline.add_stage(MyPipelineAppStage(self, "test4",env=cdk.Environment(account='994546969703', region='eu-central-1')))
         testing_stage.add_post(ManualApprovalStep('approval'))
 
-        prod_stage = pipeline.add_stage(MyPipelineAppStage(self, "prod4",env=cdk.Environment(account='994546969703', region='us-west-2')))
+        prod_stage = pipeline.add_stage(MyPipelineAppStage(self, "prod4",env=cdk.Environment(account='994546969703', region='eu-central-1')))
 
         # prod_stage.add_pre(ManualApprovalStep('approval'))
